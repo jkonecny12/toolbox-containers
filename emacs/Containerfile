@@ -16,5 +16,6 @@ RUN dnf install -y \
     ag \
     python3-pylint \
     discount \
+    git \
     make && \
     dnf clean all
