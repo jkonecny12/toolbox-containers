@@ -9,10 +9,12 @@ LABEL com.github.containers.toolbox="true" \
 #
 # ag - search engine (alternative to grep)
 # pylint - python static linter
+# discount - Markdown to HTML conventor
 #
 RUN dnf install -y \
     emacs \
     ag \
     python3-pylint \
+    discount \
     make && \
     dnf clean all
