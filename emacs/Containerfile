@@ -5,6 +5,11 @@ LABEL com.github.containers.toolbox="true" \
       summary="Image for my emacs" \
       maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
 
+# These are utilities used by emacs:
+#
+# ag - search engine (alternative to grep)
+# pylint - python static linter
+#
 RUN dnf install -y \
     emacs \
     ag \
