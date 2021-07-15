@@ -1,0 +1,13 @@
+FROM localhost/base:34
+
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used by toolbox -i <image-name> <container-name>" \
+      summary="Image for my emacs" \
+      maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
+
+RUN dnf install -y \
+    emacs \
+    ag \
+    python3-pylint \
+    make && \
+    dnf clean all
