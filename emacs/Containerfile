@@ -5,6 +5,10 @@ LABEL com.github.containers.toolbox="true" \
       summary="Image for my emacs" \
       maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
 
+# Required by emacs
+#
+# glibc-langpack-cs -- missing locale
+#
 # These are utilities used by emacs:
 #
 # ag - search engine (alternative to grep)
@@ -13,6 +17,7 @@ LABEL com.github.containers.toolbox="true" \
 #
 RUN dnf install -y \
     emacs \
+    glibc-langpack-cs \
     ag \
     python3-pylint \
     discount \
