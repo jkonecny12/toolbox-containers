@@ -1,4 +1,5 @@
-FROM registry.fedoraproject.org/fedora-toolbox:34
+ARG fedora_version=34
+FROM registry.fedoraproject.org/fedora-toolbox:${fedora_version}
 
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used by toolbox -i <image-name> <container-name>" \

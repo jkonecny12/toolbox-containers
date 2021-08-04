@@ -15,12 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-FEDORA_VER = 34
+FEDORA_VERSION ?= 34
 
 .PHONY: base
 base:
-	podman build -t base:$(FEDORA_VER) base/
+	podman build --build-arg="fedora_version=$(FEDORA_VERSION)" -t base:$(FEDORA_VERSION) base/
 
 .PHONY: emacs
 emacs:
-	podman build -t emacs:$(FEDORA_VER) emacs/
+	podman build -t emacs:$(FEDORA_VERSION) emacs/
