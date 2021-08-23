@@ -24,3 +24,7 @@ base:
 .PHONY: emacs
 emacs:
 	podman build -t emacs:$(FEDORA_VERSION) emacs/
+
+.PHONY: rhinstaller-devel
+rhinstaller-devel:
+	podman build -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/

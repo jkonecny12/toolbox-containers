@@ -1,0 +1,14 @@
+FROM localhost/base:34
+
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used by toolbox -i <image-name> <container-name>" \
+      summary="Image for development of Anaconda and related projects" \
+      maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
+
+RUN dnf install -y \
+    glibc-langpack-cs \
+    git \
+    make \
+    python3-wheel && \
+    dnf builddep -y anaconda && \
+    dnf clean all
