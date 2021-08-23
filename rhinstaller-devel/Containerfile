@@ -9,6 +9,7 @@ RUN dnf install -y \
     glibc-langpack-cs \
     git \
     make \
+    packit \
     python3-wheel && \
     dnf builddep -y anaconda && \
     dnf clean all
