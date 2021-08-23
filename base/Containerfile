@@ -6,7 +6,8 @@ LABEL com.github.containers.toolbox="true" \
       summary="Base image used for other specialized images" \
       maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
 
-RUN dnf install -y \
+RUN dnf update -y && \
+    dnf install -y \
     fish \
     wl-clipboard && \
     dnf clean all
