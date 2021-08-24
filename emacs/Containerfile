@@ -17,6 +17,7 @@ LABEL com.github.containers.toolbox="true" \
 #
 RUN dnf install -y \
     emacs \
+    google-noto-cjk-fonts-common \
     glibc-langpack-cs \
     ag \
     python3-pylint \
