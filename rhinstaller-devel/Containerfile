@@ -11,6 +11,7 @@ RUN dnf install -y \
     make \
     packit \
     tmt \
+    tig \
     python3-wheel && \
     dnf builddep -y anaconda && \
     dnf clean all
