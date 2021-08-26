@@ -9,6 +9,7 @@ RUN dnf install -y \
     glibc-langpack-cs \
     git \
     make \
+    vim \
     packit \
     tmt \
     tig \
