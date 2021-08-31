@@ -1,0 +1,12 @@
+FROM localhost/base:34
+
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used by toolbox -i <image-name> <container-name>" \
+      summary="Image for publishing packages" \
+      maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
+
+RUN dnf install -y \
+    packit \
+    fedpkg && \
+    dnf builddep -y anaconda && \
+    dnf clean all

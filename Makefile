@@ -29,3 +29,7 @@ emacs:
 .PHONY: rhinstaller-devel
 rhinstaller-devel:
 	podman build $(ARGS) -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/
+
+.PHONY: packager
+packager:
+	podman build $(ARGS) -t packager:$(FEDORA_VERSION) packager/
