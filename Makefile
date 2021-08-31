@@ -16,15 +16,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 FEDORA_VERSION ?= 34
+ARGS =
 
 .PHONY: base
 base:
-	podman build --build-arg="fedora_version=$(FEDORA_VERSION)" -t base:$(FEDORA_VERSION) base/
+	podman build $(ARGS) --build-arg="fedora_version=$(FEDORA_VERSION)" -t base:$(FEDORA_VERSION) base/
 
 .PHONY: emacs
 emacs:
-	podman build -t emacs:$(FEDORA_VERSION) emacs/
+	podman build $(ARGS) -t emacs:$(FEDORA_VERSION) emacs/
 
 .PHONY: rhinstaller-devel
 rhinstaller-devel:
-	podman build -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/
+	podman build $(ARGS) -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/
