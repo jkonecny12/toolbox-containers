@@ -13,6 +13,8 @@ RUN dnf install -y \
     packit \
     tmt \
     tig \
+    python3-sphinx \
+    python3-sphinx_rtd_theme \
     python3-wheel && \
     dnf builddep -y anaconda && \
     dnf clean all
