@@ -15,6 +15,7 @@ LABEL com.github.containers.toolbox="true" \
 # ag - search engine (alternative to grep)
 # pylint - python static linter
 # discount - Markdown to HTML conventor
+# importmagic|epc - to enable importmagic features
 #
 RUN dnf install -y \
     emacs \
@@ -23,6 +24,8 @@ RUN dnf install -y \
     ag \
     python3-pylint \
     discount \
+    python3-importmagic \
+    python3-epc \
     git \
     make && \
     dnf clean all
