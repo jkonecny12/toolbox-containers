@@ -33,3 +33,7 @@ rhinstaller-devel:
 .PHONY: packager
 packager:
 	podman build $(ARGS) -t packager:$(FEDORA_VERSION) packager/
+
+.PHONY: torrents
+torrents:
+	podman build $(ARGS) -t torrents:$(FEDORA_VERSION) torrents/
