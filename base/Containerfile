@@ -9,5 +9,7 @@ LABEL com.github.containers.toolbox="true" \
 RUN dnf update -y && \
     dnf install -y \
     fish \
-    wl-clipboard && \
+    wl-clipboard \
+    glibc-langpack-cs \
+    glibc-langpack-en && \
     dnf clean all
