@@ -24,16 +24,16 @@ base:
 
 .PHONY: emacs
 emacs:
-	podman build $(ARGS) -t emacs:$(FEDORA_VERSION) emacs/
+	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t emacs:$(FEDORA_VERSION) emacs/
 
 .PHONY: rhinstaller-devel
 rhinstaller-devel:
-	podman build $(ARGS) -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/
+	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/
 
 .PHONY: packager
 packager:
-	podman build $(ARGS) -t packager:$(FEDORA_VERSION) packager/
+	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t packager:$(FEDORA_VERSION) packager/
 
 .PHONY: torrents
 torrents:
-	podman build $(ARGS) -t torrents:$(FEDORA_VERSION) torrents/
+	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t torrents:$(FEDORA_VERSION) torrents/
