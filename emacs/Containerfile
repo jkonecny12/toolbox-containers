@@ -9,7 +9,7 @@ LABEL com.github.containers.toolbox="true" \
 # Required by emacs
 #
 # glibc-langpack-cs - missing locale
-# google-noto-cjk-fonts-common  - add missing font for bottom modes indicators (Spacemacs)
+# google-noto*-fonts - add missing font for bottom modes indicators (Spacemacs)
 #
 # These are utilities used by emacs:
 #
@@ -21,6 +21,7 @@ LABEL com.github.containers.toolbox="true" \
 RUN dnf install -y \
     emacs \
     google-noto-cjk-fonts-common \
+    google-noto-sans-cjk-ttc-fonts \
     glibc-langpack-cs \
     ag \
     python3-pylint \
