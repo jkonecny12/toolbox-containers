@@ -16,11 +16,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 FEDORA_VERSION ?= 35
-ARGS = --pull=true
+ARGS =
 
 .PHONY: base
 base:
-	podman build $(ARGS) --build-arg="fedora_version=$(FEDORA_VERSION)" -t base:$(FEDORA_VERSION) base/
+	podman build $(ARGS) --pull=true --build-arg="fedora_version=$(FEDORA_VERSION)" -t base:$(FEDORA_VERSION) base/
 
 .PHONY: emacs
 emacs:
