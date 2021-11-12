@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-FEDORA_VERSION ?= 34
+FEDORA_VERSION ?= 35
 ARGS =
 
 .PHONY: base
