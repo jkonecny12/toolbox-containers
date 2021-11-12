@@ -10,6 +10,7 @@ RUN dnf update -y && \
     dnf install -y \
     fish \
     starship \
+    pinentry-gnome3 \
     wl-clipboard \
     glibc-langpack-cs \
     glibc-langpack-en && \
