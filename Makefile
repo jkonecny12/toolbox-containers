@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 FEDORA_VERSION ?= 35
-ARGS =
+ARGS = --pull=true
 
 .PHONY: base
 base:
