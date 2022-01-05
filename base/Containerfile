@@ -7,6 +7,7 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
 
 RUN dnf update -y && \
+    dnf copr enable -y atim/starship && \
     dnf install -y \
     fish \
     starship \
