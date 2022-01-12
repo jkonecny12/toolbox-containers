@@ -24,6 +24,7 @@ RUN dnf install -y \
     google-noto-sans-cjk-ttc-fonts \
     glibc-langpack-cs \
     ag \
+    python3-pip \
     python3-pylint \
     discount \
     python3-importmagic \
