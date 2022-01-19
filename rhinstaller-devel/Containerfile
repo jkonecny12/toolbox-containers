@@ -18,5 +18,6 @@ RUN dnf install -y \
     python3-pylint \
     python3-sphinx \
     python3-sphinx_rtd_theme \
-    python3-wheel && \
+    python3-wheel \
+    shellcheck && \
     dnf builddep -y anaconda
