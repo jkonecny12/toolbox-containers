@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-FEDORA_VERSION ?= $(shell cat /etc/os-release | grep VERSION_ID | awk -F '=' '{ print $$2 }')
+FEDORA_VERSION ?= $(shell awk -F '=' '/VERSION_ID/{print $$2}' /etc/os-release)
 ARGS =
 
 .PHONY: base
