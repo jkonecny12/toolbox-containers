@@ -16,6 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 FEDORA_VERSION ?= $(shell awk -F '=' '/VERSION_ID/{print $$2}' /etc/os-release)
+CBASE ?= "base"
+CNAME ?= $(CBASE)
 ARGS =
 
 .PHONY: base
@@ -37,3 +39,12 @@ packager:
 .PHONY: torrents
 torrents:
 	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t torrents:$(FEDORA_VERSION) torrents/
+
+.PHONY: create
+create:
+	toolbox create -i localhost/$(CBASE):$(FEDORA_VERSION) $(CNAME)
+
+.PHONY: refresh
+refresh:
+	toolbox rm -f $(CNAME)
+	$(MAKE) create
