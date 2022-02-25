@@ -17,6 +17,7 @@ LABEL com.github.containers.toolbox="true" \
 # pylint - python static linter
 # discount - Markdown to HTML conventor
 # importmagic|epc - to enable importmagic features
+# pre-commit - required for magit when repo has pre-commit enabled
 #
 RUN dnf install -y \
     emacs \
@@ -30,5 +31,6 @@ RUN dnf install -y \
     python3-importmagic \
     python3-epc \
     git \
+    pre-commit \
     make && \
     dnf clean all
