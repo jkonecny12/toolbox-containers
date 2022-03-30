@@ -32,5 +32,9 @@ RUN dnf install -y \
     python3-epc \
     git \
     pre-commit \
+# for emacs function rst-compile-pdf-preview
+    rst2pdf \
+    xpdf \
+# make is always handy
     make && \
     dnf clean all
