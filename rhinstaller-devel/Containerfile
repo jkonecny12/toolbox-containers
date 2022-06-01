@@ -21,5 +21,7 @@ RUN dnf install -y \
     # required for translation check in Anaconda
     python3-polib \
     python3-wheel \
+    # pep8 checker
+    python3-pycodestyle \
     ShellCheck && \
     dnf builddep -y anaconda
