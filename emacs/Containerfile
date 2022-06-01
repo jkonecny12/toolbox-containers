@@ -30,6 +30,8 @@ RUN dnf install -y \
     discount \
     python3-importmagic \
     python3-epc \
+# add pep8 checker
+    python3-pycodestyle \
     git \
     pre-commit \
 # for emacs function rst-compile-pdf-preview
