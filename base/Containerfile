@@ -10,6 +10,8 @@ RUN dnf update -y && \
     dnf copr enable -y atim/starship && \
     dnf install -y \
     fish \
+# need to have the package installed so that container knows details about it
+    foot-terminfo \
     starship \
     pinentry-gnome3 \
     wl-clipboard \
