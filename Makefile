@@ -32,10 +32,6 @@ emacs:
 rhinstaller-devel:
 	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/
 
-.PHONY: packager
-packager:
-	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t packager:$(FEDORA_VERSION) packager/
-
 .PHONY: torrents
 torrents:
 	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t torrents:$(FEDORA_VERSION) torrents/
