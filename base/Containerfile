@@ -10,7 +10,8 @@ RUN dnf update -y && \
     dnf copr enable -y atim/starship && \
     dnf install -y \
     fish \
-# need to have the package installed so that container knows details about it
+# add terminfo packages for terminals which I'm testing
+    kitty-terminfo \
     foot-terminfo \
     starship \
     pinentry-gnome3 \
