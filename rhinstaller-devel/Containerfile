@@ -21,6 +21,8 @@ RUN dnf install -y \
     # required for translation check in Anaconda
     python3-polib \
     python3-wheel \
+    # required for autotools and development
+    npm \
     # pep8 checker
     python3-pycodestyle \
     ShellCheck && \
