@@ -1,5 +1,8 @@
 ARG fedora_version=34
-FROM registry.fedoraproject.org/fedora-toolbox:${fedora_version}
+# Use for toolbx containers
+# FROM registry.fedoraproject.org/fedora-toolbox:${fedora_version}
+# Use for distrobox containers
+FROM registry.fedoraproject.org/fedora:${fedora_version}
 
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used by toolbox -i <image-name> <container-name>" \
@@ -7,6 +10,7 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
 
 RUN dnf update -y && \
+    dnf install -y 'dnf-command(copr)' && \
     dnf copr enable -y atim/starship && \
     dnf install -y \
     fish \
@@ -17,5 +21,21 @@ RUN dnf update -y && \
     pinentry-gnome3 \
     wl-clipboard \
     glibc-langpack-cs \
-    glibc-langpack-en && \
+    glibc-langpack-en \
+# distrobox dependencies
+    bc \
+    curl \
+    diffutils \
+    findutils \
+    less \
+    ncurses \
+    passwd \
+    pinentry \
+    procps-ng \
+    shadow-utils \
+    sudo \
+    util-linux \
+    vte-profile \
+    wget && \
+# clean everything
     dnf clean all
