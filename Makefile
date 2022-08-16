@@ -18,23 +18,24 @@
 FEDORA_VERSION ?= $(shell awk -F '=' '/VERSION_ID/{print $$2}' /etc/os-release)
 CBASE ?= "base"
 CNAME ?= $(CBASE)
+ENGINE ?= "podman"
 ARGS =
 
 .PHONY: base
 base:
-	podman build $(ARGS) --pull=true --build-arg="fedora_version=$(FEDORA_VERSION)" -t base:$(FEDORA_VERSION) base/
+	$(ENGINE) build $(ARGS) --pull=true --build-arg="fedora_version=$(FEDORA_VERSION)" -t base:$(FEDORA_VERSION) base/
 
 .PHONY: emacs
 emacs:
-	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t emacs:$(FEDORA_VERSION) emacs/
+	$(ENGINE) build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t emacs:$(FEDORA_VERSION) emacs/
 
 .PHONY: rhinstaller-devel
 rhinstaller-devel:
-	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/
+	$(ENGINE) build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/
 
 .PHONY: torrents
 torrents:
-	podman build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t torrents:$(FEDORA_VERSION) torrents/
+	$(ENGINE) build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t torrents:$(FEDORA_VERSION) torrents/
 
 .PHONY: create
 create:
