@@ -21,6 +21,14 @@ CNAME ?= $(CBASE)
 ENGINE ?= "podman"
 ARGS =
 
+# rebuild all the containers
+.PHONY: all
+all:
+	$(MAKE) base
+	$(MAKE) emacs
+	$(MAKE) rhinstaller-devel
+	$(MAKE) torrents
+
 .PHONY: base
 base:
 	$(ENGINE) build $(ARGS) --pull=true --build-arg="fedora_version=$(FEDORA_VERSION)" -t base:$(FEDORA_VERSION) base/
