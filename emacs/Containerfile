@@ -48,5 +48,6 @@ RUN dnf install -y \
     make && \
     dnf clean all
 
+# TODO: Find out if needed with toolbx conteiner
 # I want to use spacemacs which will not work when ~/.emacs is always re-created.
 RUN rm /etc/skel/.emacs
