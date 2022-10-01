@@ -1,11 +1,8 @@
-ARG fedora_version=34
-# Use for toolbx containers
-# FROM registry.fedoraproject.org/fedora-toolbox:${fedora_version}
-# Use for distrobox containers
-FROM registry.fedoraproject.org/fedora:${fedora_version}
+ARG fedora_version=36
+FROM registry.fedoraproject.org/fedora-toolbox:${fedora_version}
 
 LABEL com.github.containers.toolbox="true" \
-      usage="This image is meant to be used by toolbox -i <image-name> <container-name>" \
+      usage="This image is meant to be used by distrobox create -i <image-name> <container-name>" \
       summary="Base image used for other specialized images" \
       maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
 
