@@ -21,10 +21,17 @@ LABEL com.github.containers.toolbox="true" \
 #
 RUN dnf install -y \
     emacs \
+# Add doom emacs dependencies
+    git \
+    ripgrep \
+    fd-find \
+# To solve general issues
     google-noto-cjk-fonts-common \
     google-noto-sans-cjk-ttc-fonts \
     glibc-langpack-cs \
+# Helper tools for emacs
     ag \
+# Python development tools
     python3-pip \
     python3-pylint \
     discount \
