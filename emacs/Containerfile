@@ -33,6 +33,7 @@ RUN dnf install -y \
     ag \
 # Python development tools
     python3-pip \
+    pipenv \
     python3-lsp-server \
     python3-pytest \
 # Markdown
