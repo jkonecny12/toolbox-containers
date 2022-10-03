@@ -54,4 +54,4 @@ RUN rm /etc/skel/.emacs
 
 # Fix link opening from Org mode
 # This will enable flatpak inside of the container
-RUN ln -fs (which distrobox-host-exec) /usr/bin/flatpak
+RUN ln -fs /usr/bin/distrobox-host-exec /usr/bin/flatpak
