@@ -14,7 +14,6 @@ RUN dnf update -y && \
     flatpak-spawn \
     fish \
 # add terminfo packages for terminals which I'm testing
-    kitty-terminfo \
     foot-terminfo \
     starship \
     pinentry-gnome3 \
