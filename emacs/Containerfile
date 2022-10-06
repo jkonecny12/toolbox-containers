@@ -49,6 +49,10 @@ RUN dnf install -y \
     make && \
     dnf clean all
 
-# Fix HTTP link opening from Org mode
+# TODO: Find out if needed with toolbx conteiner
+# I want to use spacemacs which will not work when ~/.emacs is always re-created.
+RUN rm /etc/skel/.emacs
+
+# Fix link opening from Org mode
 # This will enable flatpak inside of the container
 RUN ln -fs /usr/bin/distrobox-host-exec /usr/bin/flatpak
