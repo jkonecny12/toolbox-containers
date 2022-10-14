@@ -8,14 +8,12 @@ LABEL com.github.containers.toolbox="true" \
 
 RUN dnf update -y && \
     dnf install -y 'dnf-command(copr)' && \
-    dnf copr enable -y atim/starship && \
     dnf install -y \
 # to be able to run commands on the host
     flatpak-spawn \
     fish \
 # add terminfo packages for terminals which I'm testing
     foot-terminfo \
-    starship \
     pinentry-gnome3 \
     wl-clipboard \
     glibc-langpack-cs \

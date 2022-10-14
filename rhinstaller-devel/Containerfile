@@ -6,7 +6,9 @@ LABEL com.github.containers.toolbox="true" \
       summary="Image for development of Anaconda and related projects" \
       maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
 
-RUN dnf install -y \
+RUN dnf copr enable -y atim/starship && \
+    dnf install -y \
+    starship \
     glibc-langpack-cs \
     git \
     make \
