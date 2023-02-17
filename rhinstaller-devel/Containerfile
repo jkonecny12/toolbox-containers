@@ -20,6 +20,8 @@ RUN dnf copr enable -y atim/starship && \
     python3-pylint \
     python3-sphinx \
     python3-sphinx_rtd_theme \
+    # tooling requirements
+    ansible \
     # required for translation check in Anaconda
     python3-polib \
     python3-wheel \
@@ -27,5 +29,9 @@ RUN dnf copr enable -y atim/starship && \
     npm \
     # pep8 checker
     python3-pycodestyle \
+    python3-coverage \
     ShellCheck && \
     dnf builddep -y anaconda
+
+# Enable to run podman from inner of the container
+RUN ln -fs /usr/bin/distrobox-host-exec /usr/bin/podman
