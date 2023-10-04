@@ -36,18 +36,29 @@ RUN dnf install -y \
     pipenv \
     python3-lsp-server \
     python3-pytest \
+    python3-nose \
 # Markdown
     discount \
 # add pep8 checker
     python3-pycodestyle \
     git \
     pre-commit \
+# lsp dependency
+    npm \
+# sh dependency
+    shellcheck \
 # for emacs function rst-compile-pdf-preview
     rst2pdf \
     xpdf \
+# mu4e
+    ImageMagick \
+    isync \
+    maildir-utils \
 # make is always handy
     make && \
     dnf clean all
+
+ENV XMODIFIERS ""
 
 # TODO: Find out if needed with toolbx conteiner
 # I want to use spacemacs which will not work when ~/.emacs is always re-created.
