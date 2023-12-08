@@ -37,6 +37,7 @@ RUN dnf install -y \
     python3-lsp-server \
     python3-pytest \
     python3-nose \
+    python3-isort \
 # Markdown
     discount \
 # add pep8 checker
