@@ -27,6 +27,7 @@ all:
 	$(MAKE) base
 	$(MAKE) emacs
 	$(MAKE) rhinstaller-devel
+	$(MAKE) vscode
 	$(MAKE) torrents
 
 .PHONY: base
@@ -40,6 +41,10 @@ emacs:
 .PHONY: rhinstaller-devel
 rhinstaller-devel:
 	$(ENGINE) build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/
+
+.PHONY: vscode
+vscode:
+	$(ENGINE) build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t vscode:$(FEDORA_VERSION) vscode/
 
 .PHONY: torrents
 torrents:

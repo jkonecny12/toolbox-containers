@@ -1,0 +1,20 @@
+ARG fedora_version=34
+FROM localhost/base:${fedora_version}
+
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used by toolbox -i <image-name> <container-name>" \
+      summary="Image for Visual Studio DE" \
+      maintainer="Jiri Konecny <DragonLich@pacse.eu>"
+
+# Install Visual Studio repository from the official sources
+# Taken from https://code.visualstudio.com/docs/setup/linux
+COPY ["vscode.repo", "/etc/yum.repos.d/"]
+
+RUN dnf install -y \
+    git \
+    make \
+    vim \
+    code;
+
+# Enable to run podman from inner of the container
+RUN ln -fs /usr/bin/distrobox-host-exec /usr/bin/podman
