@@ -35,3 +35,6 @@ RUN dnf update -y && \
     wget && \
 # clean everything
     dnf clean all
+
+# Enable flatpak applications in the container. Main reason is to be able open web sites in flatpak app.
+RUN ln -s /usr/bin/distrobox-host-exec /usr/bin/flatpak
