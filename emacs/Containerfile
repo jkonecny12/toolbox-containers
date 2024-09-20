@@ -33,7 +33,7 @@ RUN dnf install -y \
     ag \
 # Python development tools
     python3-pip \
-    pipenv \
+    micropipenv \
     python3-lsp-server \
     python3-pytest \
     python3-nose \
@@ -44,13 +44,6 @@ RUN dnf install -y \
     python3-pycodestyle \
     git \
     pre-commit \
-# go support
-    gcc-go \
-    golang-godoc \
-    golang-x-tools-gopls \
-    golang-x-tools-guru \
-    golang-x-tools-goimports \
-    golang-x-tools-gorename \
 # lsp dependency
     npm \
 # sh dependency
@@ -65,13 +58,6 @@ RUN dnf install -y \
 # make is always handy
     make && \
     dnf clean all
-
-# go packages install
-RUN export GOBIN=/bin/; \
-    go install github.com/fatih/gomodifytags@latest; \
-    go install github.com/stamblerre/gocode@latest; \
-    go install github.com/cweill/gotests/gotests@latest
-
 
 ENV XMODIFIERS ""
 
