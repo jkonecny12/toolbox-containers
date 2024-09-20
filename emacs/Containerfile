@@ -33,7 +33,6 @@ RUN dnf install -y \
     ag \
 # Python development tools
     python3-pip \
-    micropipenv \
     python3-lsp-server \
     python3-pytest \
     python3-nose \
@@ -58,6 +57,9 @@ RUN dnf install -y \
 # make is always handy
     make && \
     dnf clean all
+
+# additional Python dependencies missing in Fedora repository
+RUN pip install pipenv
 
 ENV XMODIFIERS ""
 
