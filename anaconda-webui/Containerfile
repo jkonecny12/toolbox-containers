@@ -1,0 +1,47 @@
+# This Containerfile is similar to rhinstaller-devel and base on top of Cockpit tasks container
+FROM ghcr.io/cockpit-project/tasks:latest
+
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used by distrobox create -i <image-name> <container-name>" \
+      summary="Based on the Cockpit tasks container which contains cockpit required dependencies + my custom stuff for pleasant work" \
+      maintainer="Jiri Konecny <DragonLich@psmail.xyz>"
+
+USER root
+
+RUN dnf update -y && \
+    dnf install -y 'dnf-command(copr)' && \
+    dnf copr enable -y atim/starship && \
+    dnf install -y \
+# tooling to improve commandline experience
+    flatpak-spawn \
+    fish \
+    starship \
+# add terminfo packages for terminals which I'm testing
+    foot-terminfo \
+    pinentry-gnome3 \
+    wl-clipboard \
+    glibc-langpack-cs \
+    glibc-langpack-en \
+# distrobox dependencies
+    bc \
+    curl \
+    diffutils \
+    findutils \
+    less \
+    ncurses \
+    passwd \
+    pinentry \
+    procps-ng \
+    shadow-utils \
+    sudo \
+    util-linux \
+    vte-profile \
+    wget && \
+# clean everything
+    dnf clean all
+
+# Enable flatpak applications in the container. Main reason is to be able open web sites in flatpak app.
+RUN ln -s /usr/bin/distrobox-host-exec /usr/bin/flatpak
+
+# return back user from the tasks container
+USER user

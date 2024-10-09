@@ -42,6 +42,10 @@ emacs:
 rhinstaller-devel:
 	$(ENGINE) build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t rhinstaller-devel:$(FEDORA_VERSION) rhinstaller-devel/
 
+.PHONY: anaconda-webui
+anaconda-webui:
+	$(ENGINE) build $(ARGS) --pull=true -t anaconda-webui:latest anaconda-webui/
+
 .PHONY: vscode
 vscode:
 	$(ENGINE) build $(ARGS) --build-arg=fedora_version=$(FEDORA_VERSION) -t vscode:$(FEDORA_VERSION) vscode/
