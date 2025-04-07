@@ -32,7 +32,7 @@ all:
 
 .PHONY: base
 base:
-	$(ENGINE) build $(ARGS) --pull=true --build-arg="fedora_version=$(FEDORA_VERSION)" -t base:$(FEDORA_VERSION) base/
+	$(ENGINE) build $(ARGS) --pull=newer --build-arg="fedora_version=$(FEDORA_VERSION)" -t base:$(FEDORA_VERSION) base/
 
 .PHONY: emacs
 emacs:
@@ -44,7 +44,7 @@ rhinstaller-devel:
 
 .PHONY: anaconda-webui
 anaconda-webui:
-	$(ENGINE) build $(ARGS) --pull=true -t anaconda-webui:latest anaconda-webui/
+	$(ENGINE) build $(ARGS) --pull=newer -t anaconda-webui:latest anaconda-webui/
 
 .PHONY: vscode
 vscode:
