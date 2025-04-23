@@ -22,6 +22,9 @@ RUN dnf update -y && \
     wl-clipboard \
     glibc-langpack-cs \
     glibc-langpack-en \
+# webui dependencies
+    libvirt \
+    virt-install \
 # distrobox dependencies
     bc \
     curl \
