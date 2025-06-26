@@ -6,6 +6,7 @@ LABEL com.github.containers.toolbox="true" \
       summary="Image for Visual Studio DE" \
       maintainer="Jiri Konecny <DragonLich@pacse.eu>"
 
+### Install Visual Studio Code ###
 # Install Visual Studio repository from the official sources
 # Taken from https://code.visualstudio.com/docs/setup/linux
 COPY ["vscode.repo", "/etc/yum.repos.d/"]
@@ -16,5 +17,22 @@ RUN dnf install -y \
     vim \
     code;
 
+### Install cursor into distrobox ###
+# Install dependencies
+RUN dnf install -y \
+    fuse \
+    fuse-libs
+
+# Download cursor from the official sources: https://www.cursor.com/downloads
+RUN mkdir /usr/share/appimage/ && \
+    chown 1000:1000 /usr/share/appimage/ && \
+    curl -fsSL https://downloads.cursor.com/production/5b19bac7a947f54e4caa3eb7e4c5fbf832389853/linux/x64/Cursor-1.1.6-x86_64.AppImage -o /usr/share/appimage/Cursor.AppImage && \
+    chmod +x /usr/share/appimage/Cursor.AppImage && \
+    chown 1000:1000 /usr/share/appimage/Cursor.AppImage
+
+# Copy the Cursor Desktop file into the container
+COPY ["cursor.desktop", "/usr/share/applications/cursor.desktop"]
+
+### General helpful parts ###
 # Enable to run podman from inner of the container
 RUN ln -fs /usr/bin/distrobox-host-exec /usr/bin/podman
