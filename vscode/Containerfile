@@ -23,6 +23,10 @@ RUN dnf install -y \
     fuse \
     fuse-libs
 
+### Other dependencies for VSCode and Cursor plugins ###
+RUN dnf install -y \
+    ansible-lint
+
 # Download cursor from the official sources: https://www.cursor.com/downloads
 RUN mkdir /usr/share/appimage/ && \
     chown 1000:1000 /usr/share/appimage/ && \
