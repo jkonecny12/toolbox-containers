@@ -21,6 +21,7 @@ LABEL com.github.containers.toolbox="true" \
 #
 RUN dnf install -y \
     emacs \
+    emacs-gtk+x11 \
 # Add doom emacs dependencies
     git \
     ripgrep \
